@@ -6,16 +6,14 @@ Created on Sun Jan  7 18:00:20 2018
 @author: scrojasn
 """
 
-
 from PIL import Image
 from pylab import *
 import os
 
-
 mediaFolder = 'media'
-
 qtyFiles = len(os.listdir(mediaFolder))
 
+# Calculate the average width and height to make all the flags the same size
 avgWidth = 0
 avgHeight = 0
 for filename in os.listdir(mediaFolder):
@@ -38,6 +36,7 @@ avgHeight = int(avgHeight)
 print(avgWidth)
 print(avgHeight)
 
+# Substractive Mixing of Images
 for filename in os.listdir(mediaFolder):
     img = Image.open(mediaFolder + '/' + filename)
     print(filename)
@@ -50,13 +49,3 @@ for filename in os.listdir(mediaFolder):
 finalImg = uint8(sumImgs)
 #print(finalImg)
 imshow(finalImg)
-    
-## read image to array
-#im = array(Image.open('media/jp.png'))
-#im2 = array(Image.open('media/ml.png'))
-#im3 = array(Image.open('media/co.png'))
-## plot the image
-#imtest = uint8(0.33*im+0.33*im2+0.33*im3)
-#print(imtest)
-#imshow(imtest)
-##imshow((im+im2)/2)
